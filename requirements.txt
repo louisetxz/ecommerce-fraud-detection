@@ -1,0 +1,10 @@
+imblearn==0.0
+kneed==0.8.5
+matplotlib==3.10.1
+numpy==2.2.4
+pandas==2.2.3
+scikit_learn==1.6.1
+seaborn==0.13.2
+spectralcluster==0.2.22
+torch==2.5.1+cu121
+xgboost==3.0.0
