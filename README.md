@@ -43,10 +43,7 @@ To run/test the app locally, follow these step-by-step instructions:
 **Step 1:** Clone Git Repo  
 Clone this Git repository containing the application source code to your local machine and run `cd ecommerce-fraud-detection`.
 
-**Step 2:** Create a Virtual Environment  
-Set up a virtual environment for the application to ensure isolated dependencies.
-
-**Step 3:** Install necessary python packages  
+**Step 2:** Install necessary python packages  
 Run the following command to install all the necessary python packages
 ```bash
 pip install -r requirements.txt
@@ -82,8 +79,6 @@ This project relies on the following Python libraries and frameworks:
 ### Utilities
 - **Joblib**: For saving and loading trained models.
 - **Kneed**: For determining the optimal number of clusters using the elbow method.
-
-
 ---
 
 ## Acknowledgments
