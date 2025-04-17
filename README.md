@@ -4,12 +4,8 @@ This project focuses on detecting fraudulent transactions in e-commerce platform
 
 ## Table of Contents
 - [Introduction](#introduction)
-- [Dataset Overview](#dataset-overview)
 - [Problem Statement](#problem-statement)
-- [Features and Engineering](#features-and-engineering)
-- [Models and Techniques](#models-and-techniques)
-- [Results](#results)
-- [Explainable AI (XAI)](#explainable-ai-xai)
+- [Repository Structure](#repository-structure)
 - [How to Run](#how-to-run)
 - [Dependencies](#dependencies)
 - [Acknowledgments](#acknowledgments)
@@ -21,18 +17,6 @@ This project focuses on detecting fraudulent transactions in e-commerce platform
 Fraudulent transactions are a significant challenge for e-commerce platforms. This project leverages machine learning techniques to classify transactions as fraudulent or legitimate based on various features. The project emphasizes minimizing false negatives to ensure fraudulent transactions are detected effectively.
 
 ---
-
-## Dataset Overview
-
-The dataset contains transactional data from an e-commerce platform, including engineered features to support fraud detection. 
-
-- **Number of Transactions in Version 1**: 1,472,952
-- **Number of Transactions in Version 2**: 23,634
-- **Features**: 16
-- **Fraudulent Transactions**: Approximately 5%
-
----
-
 ## Problem Statement
 
 The objective is to develop a machine learning model that:
@@ -42,82 +26,31 @@ The objective is to develop a machine learning model that:
 
 ---
 
-## Features and Engineering
+## Repository Structure
+### raw_data
+Contains data files straight from Kaggle, with no preprocessing
 
-Key features engineered for this project include:
-1. **Single Item Transaction**: Ratio of transaction amount to quantity.
-2. **Time of Day**: Categorized into Early Morning, Morning, Afternoon, and Night.
-3. **Same Address**: Binary feature indicating whether the shipping and billing addresses match.
-4. **Private IP Address**: Binary feature indicating if the IP address is private.
-5. **Age Binning**: Categorized customer age into discrete bins.
+### preprocessed_data
+Contains data files after preprocessing step
 
----
-
-## Models and Techniques
-
-### Machine Learning Models
-- Logistic Regression
-- Random Forest
-- XGBoost
-- LightGBM
-- Gradient Boosting
-- Neural Networks
-
-### Techniques
-- **Clustering**: KMeans, Gaussian Mixture Models (GMM), Isolation Forest.
-- **Oversampling**: Random oversampling to handle class imbalance.
-- **Feature Selection**: SelectKBest for dimensionality reduction.
-- **Cross-Validation**: Stratified K-Fold with nested feature engineering and clustering.
-- **Hyperparameter Tuning**: RandomizedSearchCV for optimal model parameters.
-
----
-
-## Results
-
-- **Best Model**: XGBoost
-  - **F2-Score**: 0.7029
-  - **Recall**: 0.7209
-  - **Precision**: Balanced with recall.
-
-- **Neural Network**:
-  - **F2-Score**: 0.6802
-  - **ROC-AUC**: 0.7870
-
-- **Ensemble Model**:
-  - Combined Random Forest and XGBoost for enhanced performance.
-
----
-
-## Explainable AI (XAI)
-
-LIME (Local Interpretable Model-agnostic Explanations) was used to explain model predictions. Key insights:
-1. High transaction amounts are strong indicators of fraud.
-2. Newer accounts are more likely to be fraudulent.
-3. Mismatched shipping and billing addresses often indicate fraud.
-4. Transactions during unusual hours (e.g., late night) are more suspicious.
-
----
+### models
+Contains our saved models
 
 ## How to Run
 
 To run/test the app locally, follow these step-by-step instructions:
 
-**Step 1:** Clone Git Repo
-Clone this Git repository containing the application source code to your local machine.
+**Step 1:** Clone Git Repo  
+Clone this Git repository containing the application source code to your local machine and run `cd ecommerce-fraud-detection`.
 
-**Step 2:** Create a Virtual Environment
+**Step 2:** Create a Virtual Environment  
 Set up a virtual environment for the application to ensure isolated dependencies.
 
-**Step 3:** Start Docker Compose
-Open a terminal and navigate to the root directory of the cloned repository.
-Run the following command to start Docker Compose:
+**Step 3:** Install necessary python packages  
+Run the following command to install all the necessary python packages
 ```bash
-docker-compose up
+pip install -r requirements.txt
 ```
-**Step 4:** Wait for Docker Containers
-Wait for Docker to create the necessary containers for the application.
-
----
 
 ## Dependencies
 
@@ -133,8 +66,7 @@ This project relies on the following Python libraries and frameworks:
 ### Machine Learning Libraries
 - **Scikit-learn**: For machine learning models, preprocessing, and evaluation metrics.
 - **XGBoost**: For gradient boosting models.
-- **LightGBM**: For efficient gradient boosting models.
-- **Imbalanced-learn**: For handling imbalanced datasets (e.g., SMOTE, RandomOverSampler).
+- **Imbalanced-learn**: For handling imbalanced datasets
 
 ### Clustering and Anomaly Detection
 - **KMeans**: For clustering.
@@ -142,7 +74,7 @@ This project relies on the following Python libraries and frameworks:
 - **IsolationForest**: For anomaly detection.
 
 ### Neural Networks
-- **PyTorch**: For building and training neural networks.
+- **torch**: For building and training neural networks.
 
 ### Explainable AI
 - **LIME**: For generating interpretable explanations of model predictions.
